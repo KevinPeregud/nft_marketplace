@@ -9,11 +9,13 @@ async function main() {
   const NFT = await ethers.getContractFactory("NFT");
   const Marketplace = await ethers.getContractFactory("Marketplace");
   // deploy contracts
-  const marketplace = await Marketplace.deploy(1);
   const nft = await NFT.deploy();
+  const marketplace = await Marketplace.deploy(1);
+ 
   // Save copies of each contracts abi and address to the frontend.
-  saveFrontendFiles(marketplace , "Marketplace");
   saveFrontendFiles(nft , "NFT");
+  saveFrontendFiles(marketplace , "Marketplace");
+
 }
 
 function saveFrontendFiles(contract, name) {
